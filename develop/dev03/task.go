@@ -45,7 +45,7 @@ type sortOptions struct {
 	separator string
 }
 
-const start_batch_size = 1024
+const startBatchSize = 1024
 
 func main() {
 	options := parseOptions()
@@ -57,7 +57,7 @@ func main() {
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
-	lines := make([]string, 0, start_batch_size)
+	lines := make([]string, 0, startBatchSize)
 
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
@@ -87,7 +87,7 @@ func main() {
 	}
 
 	if options.unique {
-		uniqueLines := make([]string, 0, start_batch_size)
+		uniqueLines := make([]string, 0, startBatchSize)
 		prevLine := ""
 
 		for _, line := range lines {
